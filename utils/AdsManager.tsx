@@ -4,7 +4,7 @@ class AdsManager {
   private static interstitial: InterstitialAd | null = null;
   private static isLoaded: boolean = false;
 
-  private static adUnitId ='ca-app-pub-1261818971959382/3078022968'; // 👈 Replace with your real AdMob ID
+  private static adUnitId ='your app id'; // 👈 Replace with your real AdMob ID
 
   // Load an interstitial ad
   static loadAd(onLoaded?: () => void, onFailed?: (error: any) => void) {
