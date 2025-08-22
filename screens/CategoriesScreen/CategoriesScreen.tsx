@@ -11,7 +11,7 @@ export default function CategoriesScreen() {
   const navigation = useNavigation<NavigationProp>();
 
   const [topicsList, setTopicsList] = useState<Topic[]>([]);
-  const domain = "https://kingamit.com";
+  const domain = "your domains";
 
   useEffect(() => {
     fetchTopics().then((res) => {
