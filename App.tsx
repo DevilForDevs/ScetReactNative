@@ -1,45 +1,36 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
-
+import React, { useState } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import SplashScreen from './screens/SplashScreen/SplashScreen';
+import { StyleSheet } from 'react-native';
+import MainApp from './screens/MainApp/MainApp';
+import mobileAds from 'react-native-google-mobile-ads';
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  const [isSplashHidden, setSplashHidden] = useState(false);
+  mobileAds()
+  .initialize()
+  .then(adapterStatuses => {
+    console.log("AdMob initialized");
+  });
+
+  const hideSplash = () => {
+    setSplashHidden(true);
+  };
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+    <SafeAreaProvider style={styles.container}>
+      {!isSplashHidden
+        ? <SplashScreen onFinish={() => setSplashHidden(true)} />
+        : <MainApp />}
     </SafeAreaProvider>
-  );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1, // ✅ ensures provider covers the full screen,
+    backgroundColor:"white"
   },
 });
 
 export default App;
+

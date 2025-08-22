@@ -1,4 +1,4 @@
-package com.scet
+package com.ranjan.scet
 
 import android.app.Application
 import com.facebook.react.PackageList
