@@ -51,7 +51,7 @@ export default function PosterCarousel({ images, onPosterPress, categories, onCa
                     viewabilityConfig={viewConfig}
                     renderItem={({ item }) => (
                         <View style={styles.slide}>
-                            <Image source={{ uri: item.thumbnail }} style={styles.image} />
+                            <Image source={{ uri: item.thumbnail }} style={styles.image} resizeMode='contain' />
                             <View>
                                 <View style={styles.titleAndArrow}>
                                     <Text style={styles.title}>{item.title}</Text>
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     body: {
         alignItems: "center",
         backgroundColor: "white",
-        marginHorizontal: 32,
+        paddingHorizontal:40,
         paddingBottom: 20,
     },
     slide: {

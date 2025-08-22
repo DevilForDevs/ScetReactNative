@@ -34,7 +34,7 @@ export default function CategoriesScreen() {
     });
   }, []);
 
-  // navigation.navigate("CatgegoryDetail",item)
+
 
   const renderItem = ({ item, index }: { item: Topic; index: number }) => (
   <TouchableOpacity

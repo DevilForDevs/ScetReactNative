@@ -3,14 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
-import OnBoardingScreen from '../OnBoardingScreen/OnBoardingScreen';
 import BottomNav from '../BottomNav/BottomNav';
 import CategoryDetailScreen from '../CategoryDetailScreen/CategoryDetailScreen';
 import PlayerScreen from '../PlayerScreen/PlayerScreen';
 import { Subtopic, Topic } from '../../utils/apis';
 
 export type RootStackParamList = {
-  Onboarding: undefined;
   BottomNav: undefined;
   CatgegoryDetail: Topic;
   PlayerScreen: { items: Subtopic[]; selectedIndex: number }
@@ -19,23 +17,14 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function MainApp() {
-  const [firstLaunch, setFirstLaunch] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    setFirstLaunch(false);
-  }, []);
-
-  if (firstLaunch === null) {
-    return null; // loading screen could go here
-  }
+  
 
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={firstLaunch ? 'Onboarding' : 'BottomNav'}
+        initialRouteName={'BottomNav'}
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name="Onboarding" component={OnBoardingScreen} />
         <Stack.Screen name="BottomNav" component={BottomNav} />
         <Stack.Screen name="CatgegoryDetail" component={CategoryDetailScreen} />
         <Stack.Screen name="PlayerScreen" component={PlayerScreen} />
