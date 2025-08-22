@@ -1,4 +1,4 @@
-const domain = "https://kingamit.com";
+const domain = "your domain name";
 
 export interface Topic {
   topic_id: number;
