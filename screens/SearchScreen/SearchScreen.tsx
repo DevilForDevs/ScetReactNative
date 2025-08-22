@@ -9,7 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, "BottomNav">;
 
-const domain = "https://kingamit.com";
+const domain = "https://yourdomains";
 
 export default function SearchScreen() {
   const navigation = useNavigation<NavigationProp>();
