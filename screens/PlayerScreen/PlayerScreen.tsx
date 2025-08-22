@@ -88,7 +88,7 @@ export default function PlayerScreen() {
   return (
     <View style={styles.body}>
       <VideoPlayer
-        uri={`https://kingamit.com/ScetFiles/${currentItem.video_url}`}
+        uri={`https://yourdomains/ScetFiles/${currentItem.video_url}`}
         isLandscape={isLandscape}
         paused={paused}
         onLoad={onLoad}
